@@ -1,4 +1,4 @@
-import numpy as np, pandas as pd, joblib, dask
+import numpy as np, pandas as pd, joblib
 from sklearn.metrics import roc_auc_score
 
 np.seterr(all='raise')
@@ -29,7 +29,6 @@ class iForest():
         self.models = None
 
     #generate the isolation subtrees through recursion
-    @dask.delayedß
     def i_tree(self, data, hight, h_limit):
         #generate the external node when the iForest height reaches the limit or only 1 instance left
         if hight >= h_limit or data.shape[0] <= 1:
